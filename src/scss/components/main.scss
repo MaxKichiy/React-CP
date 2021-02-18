@@ -1,0 +1,29 @@
+.main {
+  width: 100%;
+  &__wrapper {
+    padding: 10px 20px;
+  }
+  &__item {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    box-shadow: 1px 1px 20px #ccc;
+    margin-bottom: 30px;
+  }
+  &__item-color {
+    width: 100px;
+    height: 100%;
+  }
+  &__item-name {
+    font-size: 2rem;
+    text-align: center;
+    flex-grow: 1;
+  }
+  &__item-del {
+    font-size: 2rem;
+    margin-right: 1rem;
+  }
+}

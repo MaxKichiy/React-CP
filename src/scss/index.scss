@@ -1,4 +1,23 @@
+@import './components/header.scss';
+@import './components/main.scss';
+@import './components/nav.scss';
+ul,
+h1,
+h2,
+h3 {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+a {
+  text-decoration: none;
+  color: #000;
+}
+
 body {
+  padding: 0;
+  margin: 0;
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
+  color: #000;
 }
