@@ -1,0 +1,28 @@
+.new {
+  padding: 1.5rem 20px;
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  &__input {
+    border: none;
+    height: 3rem;
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 1px 1px 20px #aaa;
+    margin-bottom: 2rem;
+    margin-top: 0.3rem;
+    font-size: 1.5rem;
+    padding: 0 1rem;
+  }
+  &__button-wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  label {
+    color: #000;
+  }
+}

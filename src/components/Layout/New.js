@@ -13,9 +13,7 @@ function New({ addNew, colorList, edit }) {
   const [from, setFrom] = useState(editableItem ? editableItem[0].from : editableItem);
   const [to, setTo] = useState(editableItem ? editableItem[0].to : editableItem);
   const [matchFrom, setMatchFrom] = useState(isEdit ? true : false);
-  console.log('🚀 ~ file: New.js ~ line 16 ~ New ~ matchFrom', matchFrom);
   const [matchTo, setMatchTo] = useState(isEdit ? true : false);
-  console.log('🚀 ~ file: New.js ~ line 17 ~ New ~ matchTo', matchTo);
 
   const history = useHistory();
 
@@ -57,20 +55,75 @@ function New({ addNew, colorList, edit }) {
   let disabled = matchFrom && matchTo;
 
   let form = (
-    <form onSubmit={formHandler}>
-      <input onChange={inputHandler} type='text' required name='from' value={from} />
-      <input onChange={inputHandler} type='text' required name='to' value={to} />
-      <button>Cancel</button>
-      <button disabled={!disabled}>Submit</button>
+    <form className='new__form' onSubmit={formHandler}>
+      <label>
+        From
+        <input
+          className='new__input'
+          onChange={inputHandler}
+          type='text'
+          required
+          name='from'
+          value={from}
+        />
+      </label>
+      <label>
+        To
+        <input
+          className='new__input'
+          onChange={inputHandler}
+          type='text'
+          required
+          name='to'
+          value={to}
+        />
+      </label>
+      <div className='new__button-wrapper'>
+        <button
+          type='button'
+          className='new__button button button-secondary'
+          onClick={() => history.push('/')}>
+          Cancel
+        </button>
+        <button className='new__button button button-main' disabled={!disabled}>
+          Submit
+        </button>
+      </div>
     </form>
   );
   if (isEdit) {
     form = (
-      <form onSubmit={editHandler}>
-        <input onChange={inputHandler} type='text' required name='from' value={from} />
-        <input onChange={inputHandler} type='text' required name='to' value={to} />
-        <button>Cancel</button>
-        <button disabled={!disabled}>Submit</button>
+      <form className='new__form' onSubmit={editHandler}>
+        <label>
+          From
+          <input
+            className='new__input'
+            onChange={inputHandler}
+            type='text'
+            required
+            name='from'
+            value={from}
+          />
+        </label>
+        <input
+          className='new__input'
+          onChange={inputHandler}
+          type='text'
+          required
+          name='to'
+          value={to}
+        />
+        <div className='new__button-wrapper'>
+          <button
+            type='button'
+            onClick={() => history.push('/')}
+            className='new__button button button-secondary'>
+            Cancel
+          </button>
+          <button className='new__button button button-main' disabled={!disabled}>
+            Submit
+          </button>
+        </div>
       </form>
     );
   }

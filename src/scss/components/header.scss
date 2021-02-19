@@ -7,25 +7,27 @@
     justify-content: center;
     align-items: center;
   }
-  &__nav-list {
-    // position: fixed;
-    // left: 0;
-    // top: 0;
-    // width: 60%;
-    // background-color: #ccc;
-    // height: 100vh;
-    // padding-top: 200px;
-    // display: none;
-  }
+  // &__nav-list {
+  // position: fixed;
+  // left: 0;
+  // top: 0;
+  // width: 60%;
+  // background-color: #ccc;
+  // height: 100vh;
+  // padding-top: 200px;
+  // display: none;
+  // }
   &__menu-button {
     position: absolute;
     height: 33px;
     left: 0;
+    cursor: pointer;
   }
 }
 .nav {
   &__list {
     position: fixed;
+    z-index: 2;
     left: 0;
     top: 0;
     width: 60%;

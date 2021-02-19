@@ -14,6 +14,9 @@ a {
   text-decoration: none;
   color: #000;
 }
+* {
+  box-sizing: border-box;
+}
 
 body {
   padding: 0;
@@ -21,4 +24,35 @@ body {
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
   color: #000;
+}
+
+.button {
+  flex-grow: 1;
+  height: 35px;
+  border-radius: 8px;
+  background: none;
+  font-size: 1.3rem;
+  border: 2px solid #000;
+  cursor: pointer;
+  &:disabled {
+    border: none;
+  }
+  &.button-secondary {
+    margin-right: 1rem;
+    width: 30%;
+    border-color: rgb(192, 79, 79);
+    font-size: 1.3rem;
+    &:active {
+      color: #fff;
+      background-color: rgb(192, 79, 79);
+    }
+  }
+  &.button-main {
+    width: 60%;
+    border-color: rgb(113, 212, 113);
+    &:active {
+      color: #fff;
+      background-color: rgb(113, 212, 113);
+    }
+  }
 }

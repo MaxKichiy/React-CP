@@ -3,7 +3,16 @@
   &__wrapper {
     padding: 10px 20px;
   }
+  &__title {
+    color: #0f52ba;
+    border-bottom: 2px solid transparent;
+    transition: all 0.15s;
+    &:hover {
+      border-bottom: 2px solid #0f52ba;
+    }
+  }
   &__item {
+    position: relative;
     height: 80px;
     display: flex;
     align-items: center;
@@ -12,8 +21,16 @@
     border-bottom-left-radius: 20px;
     box-shadow: 1px 1px 20px #ccc;
     margin-bottom: 30px;
+    cursor: default;
+    &:hover .main__item-panel {
+      display: block;
+    }
+    &:hover .main__item-color {
+      animation: fullWidth 1s forwards;
+    }
   }
   &__item-color {
+    position: absolute;
     width: 100px;
     height: 100%;
   }
@@ -21,9 +38,51 @@
     font-size: 2rem;
     text-align: center;
     flex-grow: 1;
+    z-index: 1;
+    filter: drop-shadow(0px 0px 5px #fff);
+  }
+
+  &__item-panel {
+    z-index: 1;
+    display: none;
+    position: absolute;
+    right: 20px;
+    animation: showUp 0.17s ease-in;
   }
   &__item-del {
     font-size: 2rem;
     margin-right: 1rem;
+    cursor: pointer;
+    filter: drop-shadow(0px 0px 5px #fff);
+  }
+}
+
+.popup {
+  z-index: 1;
+  margin: 0;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -90%);
+  position: absolute;
+  padding: 0.1rem 2rem;
+  border-radius: 30px;
+  background-color: #ccc;
+  border: 1px solid #999;
+}
+
+@keyframes showUp {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fullWidth {
+  0% {
+    width: 100px;
+  }
+  100% {
+    width: 100%;
   }
 }
