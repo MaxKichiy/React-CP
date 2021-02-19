@@ -29,9 +29,18 @@
     left: 0;
     top: 0;
     width: 60%;
-    background-color: #ccc;
+    background-color: rgb(221, 185, 185);
     height: 100vh;
-    padding-top: 200px;
+    padding-top: 150px;
+  }
+  &__item {
+    text-align: center;
+    font-size: 1.3rem;
+    margin-bottom: 1.2rem;
+    color: #111;
+    & > a.active {
+      border-bottom: 1px solid #000;
+    }
   }
   &__backdrop {
     position: fixed;

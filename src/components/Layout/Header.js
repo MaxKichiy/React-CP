@@ -21,12 +21,12 @@ function Header({ isMenuVisible, setIsMenuVisible }) {
             className='nav__list'
             style={isMenuVisible ? { display: 'block' } : { display: 'none' }}>
             <li className='nav__item'>
-              <NavLink to='/' onClick={menuHandler}>
+              <NavLink exact to='/' onClick={menuHandler}>
                 Главная
               </NavLink>
             </li>
             <li className='nav__item'>
-              <NavLink to='/new' onClick={menuHandler}>
+              <NavLink strict to='/new' onClick={menuHandler}>
                 Добавить новый
               </NavLink>
             </li>

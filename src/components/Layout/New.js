@@ -13,7 +13,9 @@ function New({ addNew, colorList, edit }) {
   const [from, setFrom] = useState(editableItem ? editableItem[0].from : editableItem);
   const [to, setTo] = useState(editableItem ? editableItem[0].to : editableItem);
   const [matchFrom, setMatchFrom] = useState(isEdit ? true : false);
+  console.log('🚀 ~ file: New.js ~ line 16 ~ New ~ matchFrom', matchFrom);
   const [matchTo, setMatchTo] = useState(isEdit ? true : false);
+  console.log('🚀 ~ file: New.js ~ line 17 ~ New ~ matchTo', matchTo);
 
   const history = useHistory();
 
@@ -36,15 +38,13 @@ function New({ addNew, colorList, edit }) {
     const regex = /^#([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$/g;
 
     if (e.target.name === 'from') {
-      console.log(e.target.value);
       setFrom(e.target.value);
       if (e.target.value.match(regex)) {
         setMatchFrom(true);
       } else {
-        setMatchTo(false);
+        setMatchFrom(false);
       }
     } else {
-      console.log(e.target.value);
       setTo(e.target.value);
       if (e.target.value.match(regex)) {
         setMatchTo(true);
