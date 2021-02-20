@@ -31,6 +31,7 @@ function Main({ colorList, deleteHandler }) {
       setIsShowing(false);
     }, 2000);
   };
+
   return (
     <section className='main'>
       {isShowing && <PopUp />}

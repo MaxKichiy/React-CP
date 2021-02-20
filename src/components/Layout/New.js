@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useHistory, useParams } from 'react-router';
 
 function New({ addNew, colorList, edit }) {
@@ -105,14 +105,17 @@ function New({ addNew, colorList, edit }) {
             value={from}
           />
         </label>
-        <input
-          className='new__input'
-          onChange={inputHandler}
-          type='text'
-          required
-          name='to'
-          value={to}
-        />
+        <label>
+          To
+          <input
+            className='new__input'
+            onChange={inputHandler}
+            type='text'
+            required
+            name='to'
+            value={to}
+          />
+        </label>
         <div className='new__button-wrapper'>
           <button
             type='button'

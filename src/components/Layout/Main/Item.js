@@ -7,7 +7,9 @@ function Item({ from, to, deleteHandler, id, onClickItem }) {
         style={{ background: `linear-gradient(to right, ${from},${to})` }}
         className='main__item-color'></div>
       <div className='main__item-name'>
-        {from} {to}
+        <p>
+          {from} {to}
+        </p>
       </div>
       <div className='main__item-panel'>
         <span onClick={deleteHandler} className='main__item-del'>
