@@ -4,7 +4,14 @@ import PopUp from '../PopUp';
 import Item from './Item';
 
 function Main({ colorList, deleteHandler }) {
-  const [isShowing, setIsShowing] = useState(false);
+  const [isPopupShowing, setIsPopupShowing] = useState(false);
+
+  let newPop = () => {
+    setIsPopupShowing(true);
+    setTimeout(() => {
+      setIsPopupShowing(false);
+    }, 2000);
+  };
 
   let myColors =
     colorList &&
@@ -19,35 +26,26 @@ function Main({ colorList, deleteHandler }) {
         to={el.to}
         id={el.id}
         onClickItem={() => {
-          navigator.clipboard.writeText(`linear-gradient(to right, ${el.from},${el.to})`);
           newPop();
+          navigator.clipboard.writeText(`linear-gradient(to right, ${el.from},${el.to})`);
         }}
       />
     ));
 
-  let newPop = () => {
-    setIsShowing(true);
-    setTimeout(() => {
-      setIsShowing(false);
-    }, 2000);
-  };
-
   return (
     <section className='main'>
-      {isShowing && <PopUp />}
+      {isPopupShowing && <PopUp />}
       <div className='main__wrapper'>
-        <ul className='main__list'>
-          {myColors.length >= 1 ? (
-            myColors
-          ) : (
-            <h2 style={{ textAlign: 'center', marginTop: '5rem' }}>
-              <Link className='main__title' to='/new'>
-                Добавьте
-              </Link>
-              &nbsp; свой любимый градиент
-            </h2>
-          )}
-        </ul>
+        {myColors.length >= 1 ? (
+          <ul className='main__list'>{myColors}</ul>
+        ) : (
+          <h2 style={{ textAlign: 'center', marginTop: '5rem' }}>
+            <Link className='main__title' to='/new'>
+              Добавьте
+            </Link>
+            &nbsp; свой любимый градиент
+          </h2>
+        )}
       </div>
     </section>
   );
