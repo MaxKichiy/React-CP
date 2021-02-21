@@ -41,15 +41,14 @@ function App() {
     <Router>
       <div className='App'>
         <Header isMenuVisible={mobMenu} setIsMenuVisible={setMobMenu} />
-
-        <Route path='/' exact>
-          <Main colorList={colorsList} deleteHandler={deleteColorHandler} />
-        </Route>
         <Route path='/new'>
           <New addNew={newColorHandler} />
         </Route>
         <Route path='/edit/:id'>
           <New colorList={colorsList} edit={editHandler} />
+        </Route>
+        <Route path='/'>
+          <Main colorList={colorsList} deleteHandler={deleteColorHandler} />
         </Route>
       </div>
     </Router>

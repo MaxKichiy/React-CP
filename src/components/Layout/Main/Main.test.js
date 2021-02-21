@@ -1,4 +1,4 @@
-import { getByRole, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { BrowserRouter } from 'react-router-dom';
 
@@ -27,18 +27,5 @@ describe('Main.js', () => {
       </BrowserRouter>,
     );
     expect(screen.getAllByRole('listitem')).toHaveLength(2);
-  });
-  xit('should delete an item', () => {
-    render(
-      <BrowserRouter>
-        <Main colorList={tempList} deleteHandler={deleteHandler} />
-      </BrowserRouter>,
-    );
-    // let listItem = screen.getByRole('list').firstChild;
-
-    expect(screen.getAllByRole('listitem')).toHaveLength(2);
-    let delButton = screen.getAllByTestId('delete-button')[0];
-    userEvent.click(delButton);
-    expect(screen.getAllByRole('listitem')).toHaveLength(1);
   });
 });

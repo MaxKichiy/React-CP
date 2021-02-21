@@ -1,8 +1,12 @@
 import { useState } from 'react';
 import { useHistory, useParams } from 'react-router';
+import MyInput from './Input';
+import MyForm from './MyForm';
+import myForm from './MyForm';
 
 function New({ addNew, colorList, edit }) {
   const params = useParams();
+  const history = useHistory();
 
   const [isEdit, setIsEdit] = useState(params.id ? true : false);
 
@@ -12,10 +16,9 @@ function New({ addNew, colorList, edit }) {
   }
   const [from, setFrom] = useState(editableItem ? editableItem[0].from : editableItem);
   const [to, setTo] = useState(editableItem ? editableItem[0].to : editableItem);
+
   const [matchFrom, setMatchFrom] = useState(isEdit ? true : false);
   const [matchTo, setMatchTo] = useState(isEdit ? true : false);
-
-  const history = useHistory();
 
   const formHandler = (e) => {
     e.preventDefault();
@@ -25,6 +28,7 @@ function New({ addNew, colorList, edit }) {
     addNew(newColor);
     history.replace('/');
   };
+
   const editHandler = (e) => {
     e.preventDefault();
     edit({ id: params.id, from, to });
@@ -52,82 +56,28 @@ function New({ addNew, colorList, edit }) {
     }
   };
 
-  let disabled = matchFrom && matchTo;
+  let isDisabled = matchFrom && matchTo;
 
   let form = (
-    <form className='new__form' onSubmit={formHandler}>
-      <label>
-        From
-        <input
-          className='new__input'
-          onChange={inputHandler}
-          type='text'
-          required
-          name='from'
-          value={from}
-        />
-      </label>
-      <label>
-        To
-        <input
-          className='new__input'
-          onChange={inputHandler}
-          type='text'
-          required
-          name='to'
-          value={to}
-        />
-      </label>
-      <div className='new__button-wrapper'>
-        <button
-          type='button'
-          className='new__button button button-secondary'
-          onClick={() => history.push('/')}>
-          Cancel
-        </button>
-        <button className='new__button button button-main' disabled={!disabled}>
-          Submit
-        </button>
-      </div>
-    </form>
+    <MyForm
+      onClick={() => history.push('/')}
+      from={from}
+      to={to}
+      formHandler={formHandler}
+      inputHandler={inputHandler}
+      disabled={isDisabled}
+    />
   );
   if (isEdit) {
     form = (
-      <form className='new__form' onSubmit={editHandler}>
-        <label>
-          From
-          <input
-            className='new__input'
-            onChange={inputHandler}
-            type='text'
-            required
-            name='from'
-            value={from}
-          />
-        </label>
-        <label>
-          To
-          <input
-            className='new__input'
-            onChange={inputHandler}
-            type='text'
-            required
-            name='to'
-            value={to}
-          />
-        </label>
-        <div className='new__button-wrapper'>
-          <button
-            type='button'
-            onClick={() => history.push('/')}
-            className='new__button button button-secondary'>
-            Cancel
-          </button>
-          <button className='new__button button button-main' disabled={!disabled}>
-            Submit
-          </button>
-        </div>
-      </form>
+      <MyForm
+        onClick={() => history.push('/')}
+        from={from}
+        to={to}
+        formHandler={editHandler}
+        inputHandler={inputHandler}
+        disabled={isDisabled}
+      />
     );
   }
 
