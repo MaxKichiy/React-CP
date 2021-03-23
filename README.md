@@ -1,4 +1,4 @@
-# Gradient pallete page
+# Gradient palette page
 
 Preview  - http://react-cp-git-main-themark1.vercel.app/
 
